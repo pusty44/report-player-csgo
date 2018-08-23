@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}LOGOWANIE{% endblock %}
+{% block bodyclass %}login-page{% endblock %}
+{% block body %}
+    <div class="container animatedParent">
+        <div class="row">
+            <div class="col-xl-12 animated growIn">
+                <!--===================== Custom Form ========================-->
+                <form class="custom-form" action="{{ path('login') }}" method="post">
+                    <h4>Logowanie</h4>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Login</label>
+                        <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}">
+                    </div>
+                    <div class="form-group last">
+                        <label for="exampleInputEmail2">Hasło</label>
+                        <input type="password" class="form-control" id="password" name="_password">
+                        <input type="hidden" name="_target_path" value="/" />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="see-brd-btn">Zaloguj się</button>
+                    </div>
+                    <span>Nie masz konta? <a href="/register">Zarejestruj się</a></span>
+                    <hr />
+                    <center>{% include 'security/steam_log.html.twig' %}</center>
+                </form>
+                <!--===================== End of Custom Form ========================-->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

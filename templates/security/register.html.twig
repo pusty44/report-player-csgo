@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block bodyclass %}sign-up{% endblock %}
+{% block body %}
+    <div class="container animatedParent">
+        <div class="row">
+            <div class="col-xl-12 animated growIn">
+                <!--===================== Custom Form ========================-->
+                {{ form_start(form) }}
+                    {% if error is defined %}
+                        <p class="text-muted mb-4 mt-3">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                        {{ error.message }}
+                    {% endif %}
+                {{ form_row(form.username) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword.first) }}
+                {{ form_row(form.plainPassword.second) }}
+                    <div class="text-center">
+                        <button type="submit" class="see-brd-btn">Login</button>
+                    </div>
+                    <span>Dont have account? <a href="sign-up.html">Sign Up</a></span>
+                {{ form_end(form) }}
+                <!--===================== End of Custom Form ========================-->
+            </div>
+        </div>
+    </div>
+    {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+
+    <button type="submit">Register!</button>
+    {{ form_end(form) }}
+{% endblock %}
